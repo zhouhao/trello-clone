@@ -1,16 +1,10 @@
-import {AppContainer, ColumnContainer, ColumnTitle, CardContainer} from "./styles";
+import {AppContainer} from "./styles";
+import {Column} from "./Column";
 
 export const App = () => {
   return (
       <AppContainer>
-        <ColumnContainer>
-          <ColumnTitle>
-            Todo:
-          </ColumnTitle>
-          <CardContainer>1st Item</CardContainer>
-          <CardContainer>2nd Item</CardContainer>
-          <CardContainer>3rd Item</CardContainer>
-        </ColumnContainer>
+        <Column text="Todo:"/>
       </AppContainer>
   );
 }
