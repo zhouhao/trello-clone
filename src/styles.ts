@@ -48,9 +48,36 @@ export const AddItemButton = styled.button<AddItemButtonProps>`
   max-width: 300px;
   padding: 10px 12px;
   text-align: left;
-  transtion: background 85ms ease-in;
+  transition: background 85ms ease-in;
   width: 100%;
   &:hover {
     background-color: #ffffff52;
   }
+`;
+
+export const NewItemFormContainer = styled.div`
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+`;
+
+export const NewItemButton = styled.button`
+  background-color: #5aac44;
+  border-radius: 3px;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  padding: 6px 12px;
+  text-align: center;
+`;
+
+export const NewItemInput = styled.input`
+  border-radius: 3px;
+  border: none;
+  box-shadow: #091e4240 0 1px 0 0;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
 `;
