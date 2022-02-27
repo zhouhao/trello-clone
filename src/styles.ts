@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type AddItemButtonProps = {
+  dark?: boolean;
+};
+
 export const AppContainer = styled.div`
   align-items: flex-start;
   background-color: #3179ba;
@@ -8,7 +12,7 @@ export const AppContainer = styled.div`
   height: 100%;
   padding: 20px;
   width: 100%;
-`
+`;
 
 export const ColumnContainer = styled.div`
   background-color: #ebecf0;
@@ -18,12 +22,12 @@ export const ColumnContainer = styled.div`
   border-radius: 3px;
   padding: 8px 8px;
   flex-grow: 0;
-`
+`;
 
 export const ColumnTitle = styled.div`
   padding: 6px 16px 12px;
   font-weight: bold;
-`
+`;
 
 export const CardContainer = styled.div`
   background-color: #fff;
@@ -33,4 +37,20 @@ export const CardContainer = styled.div`
   max-width: 300px;
   border-radius: 3px;
   box-shadow: #091e4240 0 1px 0 0;
-`
+`;
+
+export const AddItemButton = styled.button<AddItemButtonProps>`
+  background-color: #ffffff3d;
+  border-radius: 3px;
+  border: none;
+  color: ${(props) => (props.dark ? "#000" : "#fff")};
+  cursor: pointer;
+  max-width: 300px;
+  padding: 10px 12px;
+  text-align: left;
+  transtion: background 85ms ease-in;
+  width: 100%;
+  &:hover {
+    background-color: #ffffff52;
+  }
+`;
