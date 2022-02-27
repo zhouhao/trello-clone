@@ -1,10 +1,10 @@
-import {AppContainer} from "./styles";
-import {Column} from "./Column";
+import { AppContainer } from "./styles";
+import { Column } from "./Column";
 
 export const App = () => {
   return (
-      <AppContainer>
-        <Column text="Todo:"/>
-      </AppContainer>
+    <AppContainer>
+      <Column text="Todo:" />
+    </AppContainer>
   );
-}
+};
