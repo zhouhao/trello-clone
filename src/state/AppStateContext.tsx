@@ -50,7 +50,7 @@ const AppStateContext = createContext<AppStateContextProps>(
 export const AppStateProvider: FC = ({ children }) => {
   const [state, dispatch] = useImmerReducer(appStateReducer, appData);
 
-  const { lists } = appData;
+  const { lists } = state;
   const getTasksByListId = (id: string) => {
     return lists.find((l) => l.id === id)?.tasks || [];
   };
