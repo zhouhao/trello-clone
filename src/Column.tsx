@@ -3,7 +3,7 @@ import { useDrop } from "react-dnd";
 import { throttle } from "throttle-debounce-ts";
 import { AddNewItem } from "./AddNewItem";
 import { Card } from "./Card";
-import { addTask, moveList } from "./state/actions";
+import { addTask, moveList, moveTask, setDraggedItem } from "./state/actions";
 import { useAppState } from "./state/AppStateContext";
 import { ColumnContainer, ColumnTitle } from "./styles";
 import { isHidden } from "./utils/isHidden";
@@ -22,7 +22,7 @@ export const Column = ({ id, text, isPreview }: ColumnProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { drag } = useItemDrag({ type: "COLUMN", id, text });
   const [, drop] = useDrop({
-    accept: "COLUMN",
+    accept: ["COLUMN", "CARD"],
     hover: throttle(200, () => {
       if (!draggedItem) {
         return;
@@ -33,6 +33,12 @@ export const Column = ({ id, text, isPreview }: ColumnProps) => {
           return;
         }
         dispatch(moveList(draggedItem.id, id));
+      } else {
+        if (draggedItem.columnId === id || tasks.length) {
+          return;
+        }
+        dispatch(moveTask(draggedItem.id, null, draggedItem.columnId, id));
+        dispatch(setDraggedItem({ ...draggedItem, columnId: id }));
       }
     }),
   });
