@@ -1,5 +1,6 @@
-import { createContext, Dispatch, FC, useContext } from "react";
+import { createContext, Dispatch, FC, useContext, useEffect } from "react";
 import { useImmerReducer } from "use-immer";
+import { save } from "../api";
 import { DragItem } from "../DragItem";
 import { Action } from "./actions";
 import { appStateReducer, AppState, List, Task } from "./AppStateReducer";
@@ -58,6 +59,10 @@ export const AppStateProvider: FC = ({ children }) => {
   const getTasksByListId = (id: string) => {
     return lists.find((l) => l.id === id)?.tasks || [];
   };
+
+  useEffect(() => {
+    save(state);
+  }, [state]);
 
   return (
     <AppStateContext.Provider
