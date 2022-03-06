@@ -35,7 +35,7 @@ export const Column = ({ id, text }: ColumnProps) => {
     }),
   });
 
-  drag(drag(ref));
+  drag(drop(ref));
 
   return (
     <ColumnContainer ref={ref}>
